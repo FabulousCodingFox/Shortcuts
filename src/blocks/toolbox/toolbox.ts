@@ -29,7 +29,7 @@ class CustomCategory extends Blockly.ToolboxCategory {
         Blockly.utils.aria.setState(/** @type {!Element} */(this.htmlDiv_), Blockly.utils.aria.State.SELECTED, isSelected);
     }
 
-    /** @override */
+    /** @override 
     createIconDom_() {
         const img = document.createElement('img');
         img.src = './logo_only.svg';
@@ -37,7 +37,7 @@ class CustomCategory extends Blockly.ToolboxCategory {
         img.width='15';
         img.height='15';
         return img;
-    }
+    }*/
 }
 
 Blockly.registry.register(
