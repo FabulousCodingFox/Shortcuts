@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/99501a977a.js" crossorigin="anonymous"></script>
 
     <style>
         body {
@@ -23,7 +23,7 @@
     <div id="workspace" style="height: 100vh; width: 100%"></div>
 
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox-categories" style="display: none">
-        <category name="Logic" colour="#5b80a5">
+        <category css-icon="customIcon fa fa-cog" name="Logic" colour="#5b80a5">
           <block type="controls_if"></block>
           <block type="logic_compare">
             <field name="OP">EQ</field>
@@ -38,7 +38,7 @@
           <block type="logic_null"></block>
           <block type="logic_ternary"></block>
         </category>
-        <category name="Loops" colour="#5ba55b">
+        <category css-icon="customIcon fa-solid fa-arrows-spin" name="Loops" colour="#5ba55b">
           <block type="controls_repeat_ext">
             <value name="TIMES">
               <shadow type="math_number">
@@ -74,7 +74,7 @@
             <field name="FLOW">BREAK</field>
           </block>
         </category>
-        <category name="Math" colour="#5b67a5">
+        <category css-icon="customIcon fa-solid fa-calculator" name="Math" colour="#5b67a5">
           <block type="math_number">
             <field name="NUM">0</field>
           </block>
@@ -174,7 +174,7 @@
           </block>
           <block type="math_random_float"></block>
         </category>
-        <category name="Text" colour="#5ba58c">
+        <category css-icon="customIcon fa-solid fa-file-lines" name="Text" colour="#5ba58c">
           <block type="text">
             <field name="TEXT"></field>
           </block>
@@ -268,7 +268,7 @@
             </value>
           </block>
         </category>
-        <category name="Lists" colour="#745ba5">
+        <category css-icon="customIcon fa-solid fa-list" name="Lists" colour="#745ba5">
           <block type="lists_create_with">
             <mutation items="0"></mutation>
           </block>
@@ -336,7 +336,7 @@
             <field name="DIRECTION">1</field>
           </block>
         </category>
-        <category name="Colour" colour="#a5745b">
+        <category css-icon="customIcon fa-solid fa-paint-roller" name="Colour" colour="#a5745b">
           <block type="colour_picker">
             <field name="COLOUR">#ff0000</field>
           </block>
@@ -377,28 +377,29 @@
           </block>
         </category>
         <sep></sep>
-        <category name="Variables" colour="#a55b80" custom="VARIABLE"></category>
-        <category name="Functions" colour="#995ba5" custom="PROCEDURE"></category>
+        <category css-icon="customIcon fa-solid fa-database" name="Variables" colour="#a55b80" custom="VARIABLE"></category>
+        <category css-icon="customIcon fa fa-solid fa-rocket" name="Functions" colour="#995ba5" custom="PROCEDURE"></category>
         <sep></sep>
-        <category name="API" colour="#a55b80">
+        <category css-icon="customIcon fa-solid fa-globe" name="API" colour="#a55b80">
             <block type="get_request"></block>
             <block type="post_request"></block>
         </category>
-        <category name="JSON" colour="#5b67a5">
+        <category css-icon="customIcon fa-solid fa-hard-drive" name="JSON" colour="#5b67a5">
             <block type="json_object"></block>
             <block type="json_param"></block>
             <block type="json_param">
-            <value name="key">
-                <block type="text">
-                <field name="TEXT"></field>
-                </block>
-            </value>
-            <value name="value">
-                <block type="text">
-                <field name="TEXT"></field>
-                </block>
-            </value>
+              <value name="key">
+                  <block type="text">
+                  <field name="TEXT"></field>
+                  </block>
+              </value>
+              <value name="value">
+                  <block type="text">
+                  <field name="TEXT"></field>
+                  </block>
+              </value>
             </block>
+            <block type="json_tostring"></block>
         </category>
       </xml>
 

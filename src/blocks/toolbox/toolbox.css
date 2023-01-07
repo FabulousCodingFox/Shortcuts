@@ -27,7 +27,12 @@
     align-items: center;
 }
 
-.blocklyTreeRow {
+.blocklyToolboxCategory > .blocklyTreeRow{
+    transition: background-color 0.2s, color 0.2s;
     height: initial;
+    padding: 5px;
 }
 
+.blocklyFlyoutBackground{
+    transition: 0.1s;
+}

@@ -1,5 +1,20 @@
 import Blockly from 'blockly';
 
+class JsonField extends Blockly.Field {
+    constructor(value, validator) {
+        super(value, validator);
+        this.SERIALIZABLE = true;
+    }
+}
+
+JsonField.fromJson = function (options) {
+    const value = Blockly.utils.replaceMessageReferences(
+        options['value']);
+    return new CustomFields.JsonField(value);
+};
+
+Blockly.fieldRegistry.register('JSON', JsonField);
+
 Blockly.Blocks['json_object'] = {
     init: function () {
         this.appendDummyInput()
@@ -8,7 +23,7 @@ Blockly.Blocks['json_object'] = {
             .setCheck("JSON_param");
         this.appendDummyInput()
             .appendField("}");
-        this.setOutput(true, "String");
+        this.setOutput(true, "JSON");
         this.setColour(230);
         this.setTooltip("");
         this.setHelpUrl("");
@@ -21,10 +36,22 @@ Blockly.Blocks['json_param'] = {
             .setCheck("String")
             .appendField("Key");
         this.appendValueInput("value")
-            .setCheck(["Boolean", "Number", "String", "Array"])
+            .setCheck(["Boolean", "Number", "String", "Array", "JSON"])
             .appendField("Value");
         this.setPreviousStatement(true, "JSON_param");
         this.setNextStatement(true, "JSON_param");
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['json_tostring'] = {
+    init: function () {
+        this.appendValueInput("param")
+            .setCheck("JSON")
+            .appendField("to String");
+        this.setOutput(true, "String");
         this.setColour(230);
         this.setTooltip("");
         this.setHelpUrl("");
@@ -45,4 +72,12 @@ Blockly.JavaScript['json_param'] = function (block) {
     // TODO: Assemble JavaScript into code variable.
     var code = '...;\n';
     return code;
+};
+
+Blockly.JavaScript['json_tostring'] = function (block) {
+    var value_param = Blockly.JavaScript.valueToCode(block, 'param', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = '...';
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.JavaScript.ORDER_NONE];
 };
