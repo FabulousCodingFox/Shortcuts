@@ -36,3 +36,7 @@
 .blocklyFlyoutBackground{
     transition: 0.1s;
 }
+
+.blocklyPathDark, .blocklyPathLight{
+    display: none;
+}

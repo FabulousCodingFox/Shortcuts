@@ -1,4 +1,5 @@
 import Blockly from 'blockly';
+import { javascriptGenerator } from 'blockly/javascript';
 
 Blockly.Themes.Modern = Blockly.Theme.defineTheme('halloween', {
     'base': Blockly.Themes.Classic,
@@ -15,10 +16,8 @@ Blockly.Themes.Modern = Blockly.Theme.defineTheme('halloween', {
         'scrollbarOpacity': 0.4,
         'cursorColour': '#d0d0d0',
         'blackBackground': '#333'
-      }
+    }
 });
-
-
 
 var workspace = Blockly.inject('workspace', {
     toolbox: document.getElementById('toolbox-categories'),
@@ -28,3 +27,9 @@ var workspace = Blockly.inject('workspace', {
 const onresize = function () { Blockly.svgResize(workspace); };
 window.addEventListener('resize', onresize, false);
 onresize();
+
+export function getCodeJS(): String {
+    javascriptGenerator.addReservedWords('code');
+    const code = javascriptGenerator.workspaceToCode(workspace);
+    return code
+}

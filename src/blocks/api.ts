@@ -1,4 +1,5 @@
 import Blockly from 'blockly';
+import {javascriptGenerator} from 'blockly/javascript';
 
 Blockly.Blocks['get_request'] = {
     init: function () {
@@ -28,7 +29,7 @@ Blockly.Blocks['post_request'] = {
     }
 };
 
-Blockly.JavaScript['get_request'] = function (block) {
+javascriptGenerator['get_request'] = function (block) {
     var value_target = Blockly.JavaScript.valueToCode(block, 'Target', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
     var code = '...';
@@ -36,7 +37,7 @@ Blockly.JavaScript['get_request'] = function (block) {
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['post_request'] = function (block) {
+javascriptGenerator['post_request'] = function (block) {
     var value_target = Blockly.JavaScript.valueToCode(block, 'Target', Blockly.JavaScript.ORDER_ATOMIC);
     var value_payload = Blockly.JavaScript.valueToCode(block, 'Payload', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.

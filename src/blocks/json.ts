@@ -1,4 +1,5 @@
 import Blockly from 'blockly';
+import {javascriptGenerator} from 'blockly/javascript';
 
 class JsonField extends Blockly.Field {
     constructor(value, validator) {
@@ -58,7 +59,7 @@ Blockly.Blocks['json_tostring'] = {
     }
 };
 
-Blockly.JavaScript['json_object'] = function (block) {
+javascriptGenerator['json_object'] = function (block) {
     var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
     // TODO: Assemble JavaScript into code variable.
     var code = '...';
@@ -66,7 +67,7 @@ Blockly.JavaScript['json_object'] = function (block) {
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['json_param'] = function (block) {
+javascriptGenerator['json_param'] = function (block) {
     var value_key = Blockly.JavaScript.valueToCode(block, 'key', Blockly.JavaScript.ORDER_ATOMIC);
     var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
@@ -74,7 +75,7 @@ Blockly.JavaScript['json_param'] = function (block) {
     return code;
 };
 
-Blockly.JavaScript['json_tostring'] = function (block) {
+javascriptGenerator['json_tostring'] = function (block) {
     var value_param = Blockly.JavaScript.valueToCode(block, 'param', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
     var code = '...';
